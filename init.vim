@@ -19,6 +19,12 @@ Plug 'jiangmiao/auto-pairs' "adds bracket and also indents automatically afte re
 Plug 'sheerun/vim-polyglot' "syntax highlight for soo many langs
 Plug 'Yggdroot/indentLine' "adds vertical lines for each indentation
 
+" telescope requirments
+Plug 'nvim-lua/popup.nvim' "for telescope fuzzy finder
+Plug 'nvim-lua/plenary.nvim' "for telescope fuzzy finder
+Plug 'nvim-telescope/telescope.nvim' "for telescope fuzzy finder
+Plug 'nvim-telescope/telescope-fzy-native.nvim' "recommended by theprimeagen 
+
 call plug#end()
 
 syntax on
@@ -106,8 +112,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-
-
 colorscheme gruvbox
 
 "ctrlp
@@ -135,3 +139,13 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_first_char = '|' 
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 1
+
+" set the leader varibel default='\'
+let mapleader = ' '
+
+" Find files using Telescope command-line sugar.
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
