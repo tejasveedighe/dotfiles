@@ -25,12 +25,14 @@ Plug 'nvim-lua/plenary.nvim' "for telescope fuzzy finder
 Plug 'nvim-telescope/telescope.nvim' "for telescope fuzzy finder
 Plug 'nvim-telescope/telescope-fzy-native.nvim' "recommended by theprimeagen 
 
+" copilot
+Plug 'github/copilot.vim'
+
 call plug#end()
 
 syntax on
 
 set nocompatible
-set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -45,13 +47,14 @@ set undofile
 set incsearch
 set encoding=utf-8
 set wildmenu " for list and autocompletion in vi command
+set hidden
 
 " transparent bg
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 " For Vim<8, replace EndOfBuffer by NonText
 autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
-set colorcolumn=80
+set colorcolumn=120
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " my configs
@@ -127,6 +130,8 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " run prettier on save
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+" prettier tabwidth override
+"let g:prettier#config#tab_width = 4
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
